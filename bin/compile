@@ -11,7 +11,9 @@ set -e
 unset GIT_DIR
 
 # Configuration
-S3_BUCKET=${HEROKU_GEO_BUILDBACK_S3_BUCKET:-"heroku-buildpack-geo"}
+S3_BUCKET=${HEROKU_GEO_BUILDBACK_S3_BUCKET:-"zc-heroku-geo-buildpack"}
+
+echo "Using bucket: ${S3_BUCKET}" | indent
 
 # Parameters
 BUILD_DIR=$1
