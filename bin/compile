@@ -13,8 +13,6 @@ unset GIT_DIR
 # Configuration
 S3_BUCKET=${HEROKU_GEO_BUILDBACK_S3_BUCKET:-"zc-heroku-geo-buildpack"}
 
-echo "Using bucket: ${S3_BUCKET}" | indent
-
 # Parameters
 BUILD_DIR=$1
 CACHE_DIR="${2}/${STACK}"
@@ -53,6 +51,8 @@ function set-env (){
 function set-default-env (){
   echo "export $1=\${$1:-$2}" >> $PROFILE_PATH
 }
+
+echo "Using bucket: ${S3_BUCKET}" | indent
 
 # Retrieve versions
 GEOS_VERSION=$(manifest_version "geos")
